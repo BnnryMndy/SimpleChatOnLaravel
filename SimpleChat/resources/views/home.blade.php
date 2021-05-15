@@ -2,10 +2,17 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center m-2">
+        <form action="" class="form-inline">
+            <input class="m-2" type="text" name="message" id="">
+            <input type="submit" value="Отправить" class="btn btn-success">
+        </form>
+    </div>
+
+    <div class="row justify-content-center m-2">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('username') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +21,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('Message text') }}
                 </div>
             </div>
         </div>
