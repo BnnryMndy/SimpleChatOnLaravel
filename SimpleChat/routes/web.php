@@ -28,3 +28,6 @@ Route::get('/register', function () {
 Route::get('/messages', function () {
     return view('messages');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
