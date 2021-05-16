@@ -31,21 +31,22 @@ const app = new Vue({
     el: '#app',
 });
 
-var ajaxSendForm = new Vue({
+const ajaxSendForm = new Vue({
     el: '#ajaxForm',
     data: {
-        message: null,
-        user_id: null
+        // message: null,
+        // user_id: null
     },
     methods: {
         sendMessage: function(event) {
-            axios
-                .post("{{ route('article.store') }}", {
-                    message_text: message,
-                    sender_id: user_id,
-                }).then((response) => {
-                    callMethod;
-                });
+            alert('it is working?');
+            // axios
+            //     .post("/message/add", {
+            //         message_text: message,
+            //         sender_id: user_id,
+            //     }).then((response) => {
+            //         alert(response.status);
+            //     });
         }
-    },
+    }
 });

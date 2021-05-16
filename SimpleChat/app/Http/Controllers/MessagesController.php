@@ -18,7 +18,5 @@ class MessagesController extends Controller
         return $user->name;
     }
 
-    public function addMessage(){
-
-    }
+    
 }

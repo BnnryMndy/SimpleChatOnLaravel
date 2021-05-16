@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('/message', 'messagesController');
+Route::get('/message', [App\Http\Controllers\HomeController::class, 'ajaxIndex']);
+Route::get('/message/from/{id}', function ($id){
+    return App\Http\Controllers\HomeController::ajaxFromId($id);
+});
+
+Route::get('/message/add', function (Request $request){
+    return App\Http\Controllers\HomeController::store($request);
+});
+// Route::resource('/messages', App\Http\Controllers\MessagesController, ['only' => ['index', 'store', 'show', 'destroy']]);
