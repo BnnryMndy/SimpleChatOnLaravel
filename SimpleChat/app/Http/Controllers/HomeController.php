@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $messages = DB::select('select u.name as username, m.text as message_text, m.created_at from messages m, users u where m.user_id = u.id order by created_at desc');
+        return view('home',['messages'=>$messages]);
     }
 }

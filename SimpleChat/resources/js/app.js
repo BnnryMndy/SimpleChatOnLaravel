@@ -30,3 +30,22 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+var ajaxSendForm = new Vue({
+    el: '#ajaxForm',
+    data: {
+        message: null,
+        user_id: null
+    },
+    methods: {
+        sendMessage: function(event) {
+            axios
+                .post("{{ route('article.store') }}", {
+                    message_text: message,
+                    sender_id: user_id,
+                }).then((response) => {
+                    callMethod;
+                });
+        }
+    },
+});
