@@ -16,23 +16,7 @@
     <div id="ajax-content">
     
     </div>
-    <!-- @foreach ($messages as $message)
-        <div class="row justify-content-center m-2" id="{{ $message->message_id }}">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header row justify-content-between"> <p>{{ $message->username }}</p> <p class="text-muted">{{$message->created_at}}</p></div>
-
-                    <div class="card-body">
-                        {{ $message->message_text }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach -->
 </div>
-<!-- headers: {
-    
-  } -->
 <script>
     const ajaxSendForm = new Vue({
         el: '#ajaxForm',
@@ -48,11 +32,9 @@
                         addNewMessages();
                     })
                     .catch(function (error) {
-                        // handle error
                         console.log(error);
                     })
                     .then(function () {
-                        // always executed
                     });
             }
         }
@@ -73,7 +55,6 @@
             var messagesArray = [];
             $.each(data.messages, function(index, value){
                 messagesArray.push(value);
-                // $("#ajax-content").prepend('<div class="row justify-content-center m-2" id="'+value.message_id+'"><div class="col-md-8"><div class="card"><div class="card-header row justify-content-between"><p>'+value.username+'</p> <p class="text-muted">'+ value.created_at+'</p></div><div class="card-body">'+value.message_text+'</div></div></div></div>');
             });
             messagesArray.sort( messagesCompare );
             $.each(messagesArray, function(index, value){
@@ -99,7 +80,6 @@
             var messagesArray = [];
             $.each(data.messages, function(index, value){
                 messagesArray.push(value);
-                // $("#ajax-content").prepend('<div class="row justify-content-center m-2" id="'+value.message_id+'"><div class="col-md-8"><div class="card"><div class="card-header row justify-content-between"><p>'+value.username+'</p> <p class="text-muted">'+ value.created_at+'</p></div><div class="card-body">'+value.message_text+'</div></div></div></div>');
             });
             messagesArray.sort( messagesCompare );
             $.each(messagesArray, function(index, value){

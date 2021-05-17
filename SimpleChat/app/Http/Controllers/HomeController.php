@@ -39,7 +39,6 @@ class HomeController extends Controller
 
     public static function store(Request $request){
         $res = DB::insert('insert into messages (user_id, text, created_at) values (?, ?, CURRENT_TIME)', [$request->sender_id, $request->message_text]);
-        // $res = Message::create(['text' => $request->message_text, 'user_id' => $request->sender_id]);
         return '200';
     }
 }
