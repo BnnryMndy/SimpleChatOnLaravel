@@ -26,6 +26,11 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/message', [App\Http\Controllers\HomeController::class, 'ajaxIndex']);
+
+//in lesson practice
+Route::get('/about', function(){
+    return view('about');
+});
 Route::get('/message/from/{id}', function ($id){
     return App\Http\Controllers\HomeController::ajaxFromId($id);
 });
